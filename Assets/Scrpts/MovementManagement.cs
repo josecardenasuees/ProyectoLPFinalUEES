@@ -15,7 +15,7 @@ public class MovementManagement : MonoBehaviour
     }
     IEnumerator TurnCoRutine()
    {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         mySpriteRenderer.sprite = mySprites[index];
         index++;
         if (index == 8)

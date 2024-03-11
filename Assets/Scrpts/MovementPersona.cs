@@ -18,7 +18,7 @@ public class MovementPersona : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         mySpriteRenderer.sprite = mySprites[index];
         index++;
-        if (index == 6)
+        if (index == 4)
         {
             index = 0;
         }
