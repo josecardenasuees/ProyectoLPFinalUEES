@@ -23,6 +23,13 @@ public class ControladorSonido : MonoBehaviour
     
     public void EjecutarSonido(AudioClip sonido)
     {
-        audioSource.PlayOneShot(sonido);
+        if (sonido != null)
+        {
+            audioSource.PlayOneShot(sonido);
+        }
+        else
+        {
+            Debug.LogWarning("Se intentó reproducir un sonido nulo.");
+        }
     }
 }

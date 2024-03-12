@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-
 //using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,9 +19,8 @@ public class PlayerController : MonoBehaviour
 	public GameManager myGameManager;
     private AudioSource AudiodelJugadorSaltando;
 	[SerializeField] private AudioClip SonidoPerdedor;
-	[SerializeField] private float vida;
-	[SerializeField] private float maximaVida;
-	[SerializeField] private BarradeVida barradeVida;
+	private ControladorSonido controladorSonido;
+	
 	//private AudioSource AudiodelJugadorPerdiendo;
 
     // Start is called before the first frame update
@@ -31,12 +29,10 @@ public class PlayerController : MonoBehaviour
 		myrigidbody2D = GetComponent<Rigidbody2D>();
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
         AudiodelJugadorSaltando = GetComponent<AudioSource>();
+		controladorSonido = ControladorSonido.Instance;
 		SonidoPerdedor = GetComponent<AudioClip>();
-		//AudiodelJugadorPerdiendo = GetComponent<AudioSource>();
-		StartCoroutine(WalkCoRutine());
 		myGameManager = FindObjectOfType<GameManager>();
-		vida = maximaVida;
-		barradeVida.InicializarBarradeVida(vida);
+		StartCoroutine(WalkCoRutine());
     }
 
     // Update is called once per frame
@@ -66,35 +62,25 @@ public class PlayerController : MonoBehaviour
 		StartCoroutine(WalkCoRutine());
 	}
 
-	void OnTriggerEnter2D(Collider2D collision)
+		void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("ZombieMale"))
 		{
-			ControladorSonido.Instance.EjecutarSonido(SonidoPerdedor);
-			
 			PlayerDeath();
-			//Destroy(collision.gameObject);
-			//myGameManager.AddScore();
 		}
 		else if (collision.CompareTag("ZombieFemale"))
 		{
-			ControladorSonido.Instance.EjecutarSonido(SonidoPerdedor);
+			//Destroy(collision.gameObject);
 			PlayerDeath();
 		}
 		else if (collision.CompareTag("DeathZone"))
 		{
-			ControladorSonido.Instance.EjecutarSonido(SonidoPerdedor);
 			PlayerDeath();
 		}
 	}
 
 	void PlayerDeath()
 	{
-		vida -=1;
-		barradeVida.CambiarVidaActual(vida);
-		if (vida == 0)
-		{
-			SceneManager.LoadScene("SampleScene");
-		}
+		SceneManager.LoadScene("SampleScene");
 	}
 }
