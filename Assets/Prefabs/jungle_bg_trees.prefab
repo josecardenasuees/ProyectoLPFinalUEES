@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2827794044900798302}
   - component: {fileID: 9135804972165260264}
   - component: {fileID: 2808316245405892255}
+  - component: {fileID: -1375401723537821853}
   m_Layer: 0
   m_Name: jungle_bg_trees
   m_TagString: Untagged
@@ -99,3 +100,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrilSpeed: 2
   myGameManager: {fileID: 0}
+--- !u!50 &-1375401723537821853
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413322448074890101}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
