@@ -65,7 +65,8 @@ public class PlayerController : MonoBehaviour
 		if (collision.CompareTag("ZombieMale"))
 		{
 			ControladorSonido.Instance.EjecutarSonido(SonidoPerdedor);
-			Destroy(collision.gameObject);
+			PlayerDeath();
+			//Destroy(collision.gameObject);
 			//myGameManager.AddScore();
 		}
 		else if (collision.CompareTag("ZombieFemale"))
