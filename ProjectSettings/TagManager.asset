@@ -9,6 +9,7 @@ TagManager:
   - ZombieMale
   - ZombieFemale
   - Persona
+  - arbol
   layers:
   - Default
   - TransparentFX
