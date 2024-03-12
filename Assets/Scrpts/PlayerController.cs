@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 //using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
 	public GameManager myGameManager;
     private AudioSource AudiodelJugadorSaltando;
 	[SerializeField] private AudioClip SonidoPerdedor;
+	[SerializeField] private float vida;
+	[SerializeField] private float maximaVida;
+	[SerializeField] private BarradeVida barradeVida;
 	//private AudioSource AudiodelJugadorPerdiendo;
 
     // Start is called before the first frame update
@@ -31,6 +35,8 @@ public class PlayerController : MonoBehaviour
 		//AudiodelJugadorPerdiendo = GetComponent<AudioSource>();
 		StartCoroutine(WalkCoRutine());
 		myGameManager = FindObjectOfType<GameManager>();
+		vida = maximaVida;
+		barradeVida.InicializarBarradeVida(vida);
     }
 
     // Update is called once per frame
@@ -65,6 +71,7 @@ public class PlayerController : MonoBehaviour
 		if (collision.CompareTag("ZombieMale"))
 		{
 			ControladorSonido.Instance.EjecutarSonido(SonidoPerdedor);
+			
 			PlayerDeath();
 			//Destroy(collision.gameObject);
 			//myGameManager.AddScore();
@@ -83,6 +90,11 @@ public class PlayerController : MonoBehaviour
 
 	void PlayerDeath()
 	{
-		SceneManager.LoadScene("SampleScene");
+		vida -=1;
+		barradeVida.CambiarVidaActual(vida);
+		if (vida == 0)
+		{
+			SceneManager.LoadScene("SampleScene");
+		}
 	}
 }
