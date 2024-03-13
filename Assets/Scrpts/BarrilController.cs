@@ -26,6 +26,8 @@ public class BarrilController : MonoBehaviour
         {
             // Si tiene una de las etiquetas deseadas, destruir el objeto colisionado
             Destroy(collision.gameObject);
+            //Destroy(this.gameObject);
+            //Destroy(gameObject);
         }
     }
 }
