@@ -24,18 +24,6 @@ public class Pausar : MonoBehaviour
                 Pausa();
             }
         }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (pausarJuego)
-            {
-                Pausa();
-            }
-            else
-            {
-                Reanudar();
-            }
-        }
-
     }
     public void Pausa()
     {

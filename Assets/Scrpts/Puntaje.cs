@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Puntaje : MonoBehaviour
 {
-    private float puntos;
+    private float puntos = 0;
     private TextMeshProUGUI textMesh;
 
     private void Start()
@@ -16,5 +16,10 @@ public class Puntaje : MonoBehaviour
     {
         puntos += Time.deltaTime;
         textMesh.text = "Puntaje: " + puntos.ToString("0");
+    }
+
+    public void SumarPuntos(float puntosGanados)
+    {
+        puntos += puntosGanados;
     }
 }

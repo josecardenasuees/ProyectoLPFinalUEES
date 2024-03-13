@@ -7,6 +7,9 @@ public class BarrilController : MonoBehaviour
     private Rigidbody2D myrigidbody2D;
     public float barrilSpeed = 10f;
     public GameManager myGameManager;
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private Puntaje puntaje;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class BarrilController : MonoBehaviour
         if (collision.CompareTag("ZombieMale") || collision.CompareTag("ZombieFemale"))
         {
             // Si tiene una de las etiquetas deseadas, destruir el objeto colisionado
+            puntaje.SumarPuntos(cantidadPuntos);
             Destroy(collision.gameObject);
             //Destroy(this.gameObject);
             //Destroy(gameObject);
