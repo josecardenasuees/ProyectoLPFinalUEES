@@ -22,12 +22,12 @@ public class BulletCntroller : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("ItemGood"))
+        if (collision.CompareTag("ZombieMale"))
         {
             //myGameManager.AddScore();
             Destroy(collision.gameObject);
         }
-        else if (collision.CompareTag("ItemBad"))
+        else if (collision.CompareTag("ZombieFemale"))
         {
             Destroy(collision.gameObject);
         }

@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private AudioClip SonidoPerdedor;
 	private ControladorSonido controladorSonido;
 	
+	private float tiempoEntreDisparos;
+	private float tiempoSiguienteDisparo;
+
 	//private AudioSource AudiodelJugadorPerdiendo;
 
     // Start is called before the first frame update
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
 			AudiodelJugadorSaltando.Play();
 		}
 		myrigidbody2D.velocity = new Vector2(playerSpeed, myrigidbody2D.velocity.y);
-        if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E))
 		{
 			Instantiate(Bullet, transform.position, Quaternion.identity);
 		}
